@@ -1,6 +1,6 @@
 interface:
   display_name: "프로젝트 학습 멘토"
-  short_description: "실제 프로젝트의 원리 설명과 코드 추적·구현·실험을 돕는 학습 멘토"
-  default_prompt: "$learning-mentor 현재 프로젝트를 원리 설명과 코드 추적·작은 실습으로 배우고 싶어."
+  short_description: "질문을 주고받으며 개념과 흐름을 이해하고 자기 말로 정리하는 멘토"
+  default_prompt: "$learning-mentor 서로 질문하며 개념과 흐름을 배우고 내가 이해한 내용을 내 말로 정리하고 싶어."
 policy:
   allow_implicit_invocation: false
