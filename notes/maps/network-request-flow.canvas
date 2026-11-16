@@ -1,0 +1,32 @@
+{
+	"nodes":[
+		{"id":"group-networking","type":"group","x":-860,"y":0,"width":390,"height":790,"label":"네트워크","color":"#659bd0"},
+		{"id":"group-kubernetes","type":"group","x":-440,"y":0,"width":390,"height":790,"label":"Kubernetes","color":"#9785d4"},
+		{"id":"group-traffic","type":"group","x":-20,"y":0,"width":390,"height":550,"label":"요청 진입·라우팅","color":"#62b3ab"},
+		{"id":"group-backend","type":"group","x":400,"y":0,"width":390,"height":550,"label":"백엔드 구조·정책","color":"#d0a361"},
+		{"id":"network-root","type":"text","x":-220,"y":-320,"width":370,"height":250,"text":"**IMPORTED KNOWLEDGE**\n\n# 네트워크와 요청 흐름\n\n예전에 정리한 개념을 연결하고\n내 말로 다시 설명해 보는 공간.\n\n[[projects/markestream/imported-learning.md|이관 목차와 출처 →]]\n[[maps/learning-map.canvas|전체 학습 지도로 돌아가기 →]]","color":"#659bd0"},
+		{"id":"vpc-subnet","type":"text","x":-830,"y":50,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## VPC와 Subnet\n\n[[concepts/networking/vpc-subnet.md|원문과 내 설명 열기 →]]","color":"#659bd0"},
+		{"id":"nat-gateway","type":"text","x":-830,"y":290,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## NAT Gateway\n\n[[concepts/networking/nat-gateway.md|원문과 내 설명 열기 →]]","color":"#659bd0"},
+		{"id":"security-group","type":"text","x":-830,"y":530,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## Security Group\n\n[[concepts/networking/security-group.md|원문과 내 설명 열기 →]]","color":"#659bd0"},
+		{"id":"node-pod","type":"text","x":-410,"y":50,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## Node와 Pod\n\n[[concepts/kubernetes/node-pod.md|원문과 내 설명 열기 →]]","color":"#9785d4"},
+		{"id":"control-plane","type":"text","x":-410,"y":290,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## Control Plane\n\n[[concepts/kubernetes/control-plane.md|원문과 내 설명 열기 →]]","color":"#9785d4"},
+		{"id":"service-ingress","type":"text","x":-410,"y":530,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## Service와 Ingress\n\n[[concepts/kubernetes/service-ingress.md|원문과 내 설명 열기 →]]","color":"#9785d4"},
+		{"id":"alb","type":"text","x":10,"y":50,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## ALB\n\n[[concepts/traffic/alb.md|원문과 내 설명 열기 →]]","color":"#62b3ab"},
+		{"id":"traefik","type":"text","x":10,"y":290,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## Traefik\n\n[[concepts/traffic/traefik.md|원문과 내 설명 열기 →]]","color":"#62b3ab"},
+		{"id":"api-gateway","type":"text","x":430,"y":50,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## API Gateway와 사용량 제한\n\n[[concepts/backend/api-gateway.md|원문과 내 설명 열기 →]]","color":"#d0a361"},
+		{"id":"msa","type":"text","x":430,"y":290,"width":330,"height":200,"text":"**CONCEPT / 이관 자료**\n\n## 서비스 분리와 MSA\n\n[[concepts/backend/msa.md|원문과 내 설명 열기 →]]","color":"#d0a361"}
+	],
+	"edges":[
+		{"id":"network-root-vpc-subnet","fromNode":"network-root","fromSide":"bottom","toNode":"vpc-subnet","toSide":"top","color":"#659bd0"},
+		{"id":"vpc-subnet-nat-gateway","fromNode":"vpc-subnet","fromSide":"bottom","toNode":"nat-gateway","toSide":"top","color":"#659bd0"},
+		{"id":"nat-gateway-security-group","fromNode":"nat-gateway","fromSide":"bottom","toNode":"security-group","toSide":"top","color":"#659bd0"},
+		{"id":"network-root-node-pod","fromNode":"network-root","fromSide":"bottom","toNode":"node-pod","toSide":"top","color":"#9785d4"},
+		{"id":"node-pod-control-plane","fromNode":"node-pod","fromSide":"bottom","toNode":"control-plane","toSide":"top","color":"#9785d4"},
+		{"id":"control-plane-service-ingress","fromNode":"control-plane","fromSide":"bottom","toNode":"service-ingress","toSide":"top","color":"#9785d4"},
+		{"id":"network-root-alb","fromNode":"network-root","fromSide":"bottom","toNode":"alb","toSide":"top","color":"#62b3ab"},
+		{"id":"alb-traefik","fromNode":"alb","fromSide":"bottom","toNode":"traefik","toSide":"top","color":"#62b3ab"},
+		{"id":"network-root-api-gateway","fromNode":"network-root","fromSide":"bottom","toNode":"api-gateway","toSide":"top","color":"#d0a361"},
+		{"id":"api-gateway-msa","fromNode":"api-gateway","fromSide":"bottom","toNode":"msa","toSide":"top","color":"#d0a361"},
+		{"id":"ingress-traefik","fromNode":"service-ingress","fromSide":"right","toNode":"traefik","toSide":"left","color":"#62b3ab","label":"Ingress 구현"}
+	]
+}

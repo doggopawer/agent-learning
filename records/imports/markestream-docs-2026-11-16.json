@@ -1,0 +1,326 @@
+{
+  "schema_version": 1,
+  "imported_at": "2026-11-16",
+  "source_project": "markestream",
+  "source_root": "/Users/dhkim/Desktop/ml-project/markestream",
+  "source_git_head": "37a6dea3d9f39332de128912b62e45039a0ceb86",
+  "mode": "move, source removed after verified import",
+  "imported_markdown": 34,
+  "concepts": 10,
+  "files": [
+    {
+      "source": "docs/01-prd.md",
+      "source_sha256": "ebdf34940b34ddd766b083cb4e18800e528d2ed760d4a78e71d15fd565637b15",
+      "destination": "notes/projects/markestream/reference/01-prd.md",
+      "destination_sha256": "c6950a278e6de1890f5dcd369eb38b458d071538e8e2baeccafab74135ef7703"
+    },
+    {
+      "source": "docs/02-system-architecture.md",
+      "source_sha256": "08a1e75a441d29d4244208bf5a83e8554299917174b8946124aa642af191de01",
+      "destination": "notes/projects/markestream/reference/02-system-architecture.md",
+      "destination_sha256": "39ddf4c24af70277f5ed588523fbb79ee505beafa7cc0f62cf0c7ad420c209df"
+    },
+    {
+      "source": "docs/03-erd.md",
+      "source_sha256": "20315cdb2cefcd67324bd558447678e67d270add57191e60d4b388c7e4a513ea",
+      "destination": "notes/projects/markestream/reference/03-erd.md",
+      "destination_sha256": "92dd12c363f4d323d3bc8354803c08bbe2c9668b0d6cb952ebe896518f10d214"
+    },
+    {
+      "source": "docs/04-api-spec.md",
+      "source_sha256": "c378a5014c99ef2e8985d28ff080f99ea40490eee220aecc2e3c096d3a1f3a9f",
+      "destination": "notes/projects/markestream/reference/04-api-spec.md",
+      "destination_sha256": "daf7ce17b3a196f580b7328a534b411244c857ec7314c983dc720255080ee556"
+    },
+    {
+      "source": "docs/05-project-cicd.md",
+      "source_sha256": "9a36ab12c9595d0590c5034bcf8dbf495404bb00ce396d577192bc3dccf65f7e",
+      "destination": "notes/projects/markestream/reference/05-project-cicd.md",
+      "destination_sha256": "1db4a5eb83ee800b721d05cc26f69d89ba507d495d5564c53eed841a53757682"
+    },
+    {
+      "source": "docs/06-mvp-status.md",
+      "source_sha256": "242468680c44060f64c0db68f92902cbf99cb6655d6c1e43f6508cd2e3735c95",
+      "destination": "notes/projects/markestream/reference/06-mvp-status.md",
+      "destination_sha256": "6641f0e7421fae3a1feefca514a0fb22455f8230b77e86b9a2293cedb1897c32"
+    },
+    {
+      "source": "docs/07-permissions.md",
+      "source_sha256": "3c2ba88fc33ad89f87d90e11123bcfa186714e8709fea1988dc49d4748049b46",
+      "destination": "notes/projects/markestream/reference/07-permissions.md",
+      "destination_sha256": "c21be95b2f1144c3efa8440219a36e165ef0787c5855584323833afdd630b43a"
+    },
+    {
+      "source": "docs/08-registration.md",
+      "source_sha256": "e121ceabce72ea5827d782dbe26671e6ff06ba310ae39a7f0f5504bdfbbc6f75",
+      "destination": "notes/projects/markestream/reference/08-registration.md",
+      "destination_sha256": "3cff73d70a656939bcd6f5f798e63009613f33202b61d6e0285153179431cf7e"
+    },
+    {
+      "source": "docs/README.md",
+      "source_sha256": "387472887c8508af14d7db4b0f4c44161b939d0ed67795bcd64aae47da201099",
+      "destination": "notes/projects/markestream/imported-guides/README.md",
+      "destination_sha256": "4c87cfb7e1560206421494fd28a91efa26549ff97d4104328d3c71b18be8ed5d"
+    },
+    {
+      "source": "docs/adr/001-mysql.md",
+      "source_sha256": "b4d5ae9cb4e7e699b7f6ca393af9eb980016564e0494bba65b44f13190bf05a6",
+      "destination": "notes/projects/markestream/adr/001-mysql.md",
+      "destination_sha256": "a8a5ebc40f13e231b7a14191fe02bf527037c88dd7e63d1e923f4db24609f005"
+    },
+    {
+      "source": "docs/adr/002-traefik.md",
+      "source_sha256": "219988890b7b31b2a6ea5e78b51b657a96fd2bce534ae2ca33f72c9768b6fe31",
+      "destination": "notes/projects/markestream/adr/002-traefik.md",
+      "destination_sha256": "8ddd054d3746db26889ef5503c6b8eb725134287ca03e74095ed1dc46a9c60fb"
+    },
+    {
+      "source": "docs/adr/003-backend-code-conventions.md",
+      "source_sha256": "ecc22d1cc252132b120983eecc0dcee90fe892a345b300699975a33707e78d7e",
+      "destination": "notes/projects/markestream/adr/003-backend-code-conventions.md",
+      "destination_sha256": "98a437cd5c4a7c00a964239d9277906944b3a4da7e97a2185a2e361434566417"
+    },
+    {
+      "source": "docs/adr/004-mvp-runtime.md",
+      "source_sha256": "fe2913ea6ccf314fb60e7bb1035713eecf18ba6dcbc8a6a190e1d898434a0466",
+      "destination": "notes/projects/markestream/adr/004-mvp-runtime.md",
+      "destination_sha256": "73cce80bb76c67bd0b1a53686328232cd4b1f6f24b8b420e495785348c635868"
+    },
+    {
+      "source": "docs/adr/005-account-permission-groups.md",
+      "source_sha256": "80b184ffeaa130f65cab0a7e11d5e2fb36ea0a2476f8fbfcd5354fd96c138b35",
+      "destination": "notes/projects/markestream/adr/005-account-permission-groups.md",
+      "destination_sha256": "1f127ad06571bc040d5304cb6f6984abdaffc697f526c82b10a636b227c742fc"
+    },
+    {
+      "source": "docs/adr/006-company-registration.md",
+      "source_sha256": "cdba80614e75915ede449d697cb1b907bd69803e04de2d9e0153a651f778904c",
+      "destination": "notes/projects/markestream/adr/006-company-registration.md",
+      "destination_sha256": "da9b32785b0b13da35542ccb8eeedb58b235f8724c3151561d7d9b0de4c28d01"
+    },
+    {
+      "source": "docs/architecture/system-overview.md",
+      "source_sha256": "18f7101df7ebbeb0a238e69dc6472b4846cb1cb9c0c8768062ec3345b4d0a5f0",
+      "destination": "notes/projects/markestream/architecture/system-overview.md",
+      "destination_sha256": "1313f5e64c3470ce73db8e6173abe2c86f51f0356aeddd4e40940cefb49f033a"
+    },
+    {
+      "source": "docs/concepts/backend/api-gateway.md",
+      "source_sha256": "717095448dfdb5f01a28d6901ba0245f9c00acab62c9c00fb89f6093efff71ea",
+      "destination": "notes/concepts/backend/api-gateway.md",
+      "destination_sha256": "c0aa25786923ad0afe7857cc3571e1336b43edf8ab7a510660d079b36465d9c7"
+    },
+    {
+      "source": "docs/concepts/backend/msa.md",
+      "source_sha256": "c142c4b2562e9d6ca56edbaeb841650fa6c9719b4c2b5a7b09991fcb58791144",
+      "destination": "notes/concepts/backend/msa.md",
+      "destination_sha256": "38de51598a57eb4f25ed7bdce934dd988ae915d3f24c11b2a66a78b16444cdc9"
+    },
+    {
+      "source": "docs/concepts/kubernetes/control-plane.md",
+      "source_sha256": "58b8c93fe61cd4bd5fe696c0e63f0cdb11b2030faeb6b6b5cecd2d453ac3ca85",
+      "destination": "notes/concepts/kubernetes/control-plane.md",
+      "destination_sha256": "d89537ddfeb45b1c10c90e55b5e3a00393afc4eb379f2cfb53dbd5c951fc20e2"
+    },
+    {
+      "source": "docs/concepts/kubernetes/node-pod.md",
+      "source_sha256": "13c6791fd090af0066813e8658739f9c800a398fed3c2b7bdd19f59142f476c3",
+      "destination": "notes/concepts/kubernetes/node-pod.md",
+      "destination_sha256": "49ace4cefe523d2326857ac910f65ca90bf81a16deb193492eac48efbe4f852d"
+    },
+    {
+      "source": "docs/concepts/kubernetes/service-ingress.md",
+      "source_sha256": "cf8af42242c1f3a28033aa55d60ca12a3dfd1c524cfc0871f2fae4975febbf59",
+      "destination": "notes/concepts/kubernetes/service-ingress.md",
+      "destination_sha256": "03634eae343595661e38fdaeccd9f56a9df544a59bb7b04deb1d86e300e34800"
+    },
+    {
+      "source": "docs/concepts/networking/nat-gateway.md",
+      "source_sha256": "b91c3c685b8f5a45ffda0f4a4b6df99efe019722debd3677476537031920c42d",
+      "destination": "notes/concepts/networking/nat-gateway.md",
+      "destination_sha256": "4eb6e7e2e07dd3fa1d5faf82bdbaf2335fc1289a24a25b58ef6788042e002eb8"
+    },
+    {
+      "source": "docs/concepts/networking/security-group.md",
+      "source_sha256": "3641fc57646db1ca85caa7238928764620998023b2008e07dd979daa1e1ffe28",
+      "destination": "notes/concepts/networking/security-group.md",
+      "destination_sha256": "8ae5e3802154dffd27cd86d77266ddbd88a2f802a6dd1d3fbd292d826e2c4e94"
+    },
+    {
+      "source": "docs/concepts/networking/vpc-subnet.md",
+      "source_sha256": "1724129e3ec637c3667b05e2b71d485daf28bdc3ee6dfc54975b0de5d51dc632",
+      "destination": "notes/concepts/networking/vpc-subnet.md",
+      "destination_sha256": "ee89ccef156f7fcfe1d69825cf6103eabf35aa6bf48615af7160acc918d7b6fe"
+    },
+    {
+      "source": "docs/concepts/traffic/alb.md",
+      "source_sha256": "aebb28dd960ed939d343f315e75161d8c065c1bf9470adc7a920738c925f5462",
+      "destination": "notes/concepts/traffic/alb.md",
+      "destination_sha256": "195f050f441ad1d33d8e5120c9ac549b3887ce802a7375071f4f5eca272062eb"
+    },
+    {
+      "source": "docs/concepts/traffic/traefik.md",
+      "source_sha256": "3a1e48594c8346f949f9928ec195ea629b375d7655bc52f8fe5b41dc1c8fd91b",
+      "destination": "notes/concepts/traffic/traefik.md",
+      "destination_sha256": "86c2da1e911a259f05764c5c6a6a8505aff287e049434207c8b1ef8551c75dde"
+    },
+    {
+      "source": "docs/labs/local-request-flow.md",
+      "source_sha256": "66bf15954a1baed56734ecd6634785ca98e7e25c3e0c794cfbf72276be51d774",
+      "destination": "notes/projects/markestream/labs/local-request-flow.md",
+      "destination_sha256": "cbb2cde0e4f21cfdbddd79f778371de8f99d9431f2eb8e878056adb476bebe85"
+    },
+    {
+      "source": "docs/labs/pod-failover.md",
+      "source_sha256": "da276308cf81ad3a3022a5ad19e23cdbfa7ecc93de7b1ca7320fbd4d89e43c8d",
+      "destination": "notes/projects/markestream/labs/pod-failover.md",
+      "destination_sha256": "6b7228c6b817b6469fb30260a09c4f5154da1760226a96798227b7a7acfaa85a"
+    },
+    {
+      "source": "docs/learning-guide.md",
+      "source_sha256": "5d2542f56ec21e673d2a6609bd9747d391585961dc90508f89192d6bcfb55c9e",
+      "destination": "notes/projects/markestream/imported-guides/learning-guide.md",
+      "destination_sha256": "377edf508f8f416f354e0c5ff64cdadfc14fd67e1b3265b0147e99dcef030b8c"
+    },
+    {
+      "source": "docs/sessions/2026-11-11-learning-wiki.md",
+      "source_sha256": "3b08924d671566501523b49d93cc371e9219f0b927233fc43c582efe7d939a3c",
+      "destination": "notes/sessions/markestream/2026-11-11-learning-wiki.md",
+      "destination_sha256": "722f59bf9b27c185095fdfc9f02b0b6041c1594a87dbf4bb0afd01b333e7cd91"
+    },
+    {
+      "source": "docs/templates/adr.md",
+      "source_sha256": "429c54e3800eede233ba0c17ecefc342b07e101e3dbd83fc2b698bb09372dc2e",
+      "destination": "notes/projects/markestream/imported-templates/adr.md",
+      "destination_sha256": "cfd3e6c2ff0b10303f627def5d2f0a95360554652c18962cfe13153d93701050"
+    },
+    {
+      "source": "docs/templates/concept.md",
+      "source_sha256": "7ceace008d5f101eb33219f61e1130ba18082aab4401fbe8553c2ce8b3092886",
+      "destination": "notes/projects/markestream/imported-templates/concept.md",
+      "destination_sha256": "c3ea67d7b2d4a908b03634e1c667ad1992eccbbc141f7cad5bc5f282618896f3"
+    },
+    {
+      "source": "docs/templates/lab.md",
+      "source_sha256": "1dd0a3806e8aa23d006087ea29f10efe33a28a962222d448e82fb7dcc264763f",
+      "destination": "notes/projects/markestream/imported-templates/lab.md",
+      "destination_sha256": "71b2f3a80a421e74a00fe9574268fbab23351fab1061d499a9f90a306c1d660d"
+    },
+    {
+      "source": "docs/templates/session.md",
+      "source_sha256": "42667300521aa437423ab8dc7737737ce9bbe7d91d2bf7cc6050bd0ee9206825",
+      "destination": "notes/projects/markestream/imported-templates/session.md",
+      "destination_sha256": "1f439a12cd5519aa8ca2f582d345451b6638d9f3cdcc710f53718457d60eb944"
+    }
+  ],
+  "rewritten_links": 213,
+  "historical_unresolved_links": [
+    {
+      "source": "docs/adr/001-mysql.md",
+      "target": "../../backend/admin-api/src/main/java/com/markestream/admin/workspace/application/WorkspaceService.java",
+      "action": "preserved as historical missing-path text"
+    }
+  ],
+  "skipped": [
+    {
+      "path": "docs/AGENTS.md",
+      "reason": "source authoring rules; not installed into learning vault"
+    },
+    {
+      "path": "docs/ui/inquiry-alignment.json",
+      "reason": "product UI audit data retained in source; linked from import index"
+    },
+    {
+      "path": "docs/ui/interaction-audit.json",
+      "reason": "product UI audit data retained in source; linked from import index"
+    },
+    {
+      "path": "docs/ui/page-rollout.json",
+      "reason": "product UI audit data retained in source; linked from import index"
+    },
+    {
+      "path": "docs/ui/snowui-coverage.json",
+      "reason": "product UI audit data retained in source; linked from import index"
+    }
+  ],
+  "learning_and_approval_status": "unchanged",
+  "external_facts_and_experiments": "not revalidated or executed by migration",
+  "initial_mode": "copy, preserve source",
+  "source_cleanup": {
+    "date": "2026-11-16",
+    "authorization": "User requested removal of the imported originals and related AGENTS.md references in this conversation.",
+    "deleted_files": [
+      "docs/01-prd.md",
+      "docs/02-system-architecture.md",
+      "docs/03-erd.md",
+      "docs/04-api-spec.md",
+      "docs/05-project-cicd.md",
+      "docs/06-mvp-status.md",
+      "docs/07-permissions.md",
+      "docs/08-registration.md",
+      "docs/README.md",
+      "docs/adr/001-mysql.md",
+      "docs/adr/002-traefik.md",
+      "docs/adr/003-backend-code-conventions.md",
+      "docs/adr/004-mvp-runtime.md",
+      "docs/adr/005-account-permission-groups.md",
+      "docs/adr/006-company-registration.md",
+      "docs/architecture/system-overview.md",
+      "docs/concepts/backend/api-gateway.md",
+      "docs/concepts/backend/msa.md",
+      "docs/concepts/kubernetes/control-plane.md",
+      "docs/concepts/kubernetes/node-pod.md",
+      "docs/concepts/kubernetes/service-ingress.md",
+      "docs/concepts/networking/nat-gateway.md",
+      "docs/concepts/networking/security-group.md",
+      "docs/concepts/networking/vpc-subnet.md",
+      "docs/concepts/traffic/alb.md",
+      "docs/concepts/traffic/traefik.md",
+      "docs/labs/local-request-flow.md",
+      "docs/labs/pod-failover.md",
+      "docs/learning-guide.md",
+      "docs/sessions/2026-11-11-learning-wiki.md",
+      "docs/templates/adr.md",
+      "docs/templates/concept.md",
+      "docs/templates/lab.md",
+      "docs/templates/session.md",
+      "docs/AGENTS.md"
+    ],
+    "retained_files": [
+      "docs/ui/inquiry-alignment.json",
+      "docs/ui/interaction-audit.json",
+      "docs/ui/page-rollout.json",
+      "docs/ui/snowui-coverage.json"
+    ],
+    "updated_source_agents": [
+      "AGENTS.md",
+      "backend/AGENTS.md",
+      "apps/admin-web/AGENTS.md"
+    ],
+    "relocated_design_references": [
+      {
+        "previous_source": "docs/07-permissions.md",
+        "note": "notes/projects/markestream/reference/07-permissions.md"
+      },
+      {
+        "previous_source": "docs/08-registration.md",
+        "note": "notes/projects/markestream/reference/08-registration.md"
+      },
+      {
+        "previous_source": "docs/adr/005-account-permission-groups.md",
+        "note": "notes/projects/markestream/adr/005-account-permission-groups.md"
+      },
+      {
+        "previous_source": "docs/06-mvp-status.md",
+        "note": "notes/projects/markestream/reference/06-mvp-status.md",
+        "referring_note": "notes/projects/markestream/learning-roadmap.md"
+      },
+      {
+        "previous_source": "docs/02-system-architecture.md",
+        "note": "notes/projects/markestream/reference/02-system-architecture.md",
+        "referring_note": "notes/projects/markestream/learning-roadmap.md"
+      }
+    ],
+    "learning_and_approval_status": "unchanged"
+  }
+}

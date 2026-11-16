@@ -2,7 +2,7 @@
 title: "광고주 회사 생성과 권한 경계"
 type: project
 project_id: markestream
-learning_status: not-started
+learning_status: learning
 experiment_status: not-run
 created: "2026-11-16"
 tags: [markestream, learning, code]
@@ -16,7 +16,7 @@ tags: [markestream, learning, code]
 <!-- learning:context {"kind": "project", "project_id": "markestream"} -->
 확인일: 2026-11-16 · 이번 학습의 제품 실행 검증: 미실행
 
-프로젝트: `markestream` · 코드 읽기 확인 · Git HEAD: `b1906351bde6484a6e3b1f1ee20cdb27622a0913`. 개별 해시는 커밋되지 않은 파일 내용도 포함한다.
+프로젝트: `markestream` · 코드 읽기 확인 · Git HEAD: `37a6dea3d9f39332de128912b62e45039a0ceb86`. 개별 해시는 커밋되지 않은 파일 내용도 포함한다.
 
 ## 한 문장으로
 
@@ -55,11 +55,28 @@ Controller가 인증 주체와 입력을 전달하고, Service의 @Transactional
 - [첫 진단 세션](../../sessions/markestream/client-company-creation.md): 위 개념을 실제 사용자 답변과 연결해 확인한다. 현재 미응답이다.
 - [전체 학습 지도](../../maps/learning-map.md): 공통 개념·적용 사례·학습 순서를 함께 본다.
 
+## 이번 학습: 회사·계정·승인 구분
+
+회사 추가는 서비스에서 다룰 회사 정보를 등록하는 일이다. 로그인하는 사람의 계정과 회사의 운영 승인은 별도 절차이며, 회사 추가만으로 새 로그인 계정이나 운영 승인이 만들어지지는 않는다. 생성자 담당 관계를 연결하는 일도 새 로그인 계정 생성과 구분한다.
+
+## 이번에 읽을 두 줄
+
+```java
+ClientCompany client = ClientCompany.register(agencyCompanyId, name, clock.instant());
+var saved = clients.saveAndFlush(client);
+```
+
+첫째 줄은 서버 메모리에 회사 객체를 구성하고, 둘째 줄은 Repository를 통해 DB 저장을 요청한다. 저장 요청을 전체 트랜잭션 커밋 완료와 같은 뜻으로 설명하지 않는다. 화면은 회사 이름을 API로 전달하고 서버는 권한·입력 규칙을 확인하며 업무를 처리한다.
+
+이 내용은 [실제 답변과 재질문](../../sessions/markestream/client-company-creation.md)에 연결한다. 기술·업무는 학습 중이고 코드 이해도는 아직 답변 대기다.
+
 ## 설계 근거와 해석
 
 명시된 근거: backend/AGENTS.md는 api → application → domain/repository 책임과 application의 트랜잭션 조율을 정한다. ADR-005는 회사·계정 분리와 권한 판정의 선택 이유를 기록한다.
 
 멘토의 해석: 이 분리는 HTTP 입력 처리, 업무 권한, 회사 상태, DB 접근을 각각 추적하기 쉽게 한다. 작성자의 추가 의도나 실제 성능 효과까지 확인한 것은 아니다. 구체적인 권한 동시성 규칙은 관련 구현과 ADR을 읽고 별도로 검증한다.
+
+이관 후 설계 자료: [계정·회사·권한 명세](reference/07-permissions.md), [회사 등록·검증·초대](reference/08-registration.md), [ADR-005: 회사·계정 분리](adr/005-account-permission-groups.md). 기존 설계 내용은 해당 노트에 보존했고, 원본 문서 삭제 후에도 이 링크에서 읽을 수 있다.
 
 ## 실제 코드와 설계 근거
 
@@ -92,23 +109,13 @@ Controller가 인증 주체와 입력을 전달하고, Service의 @Transactional
 
 - [backend/AGENTS.md](file:///Users/dhkim/Desktop/ml-project/markestream/backend/AGENTS.md)
   - 근거: 현재 프로젝트의 계층별 책임과 트랜잭션 기준
-  - SHA-256: `6f19614303852d7d5b64881274d0b49415925327be649547f791df6a7b35fd0e`
-<!-- learning:source {"path": "backend/AGENTS.md", "symbol": "", "sha256": "6f19614303852d7d5b64881274d0b49415925327be649547f791df6a7b35fd0e", "project_id": "markestream", "project_root": "/Users/dhkim/Desktop/ml-project/markestream"} -->
+  - SHA-256: `64bc3cb0826e7043335dceef41040d50bfbebca8608e5aefcbfccc0d48e3a6b4`
+<!-- learning:source {"path": "backend/AGENTS.md", "symbol": "", "sha256": "64bc3cb0826e7043335dceef41040d50bfbebca8608e5aefcbfccc0d48e3a6b4", "project_id": "markestream", "project_root": "/Users/dhkim/Desktop/ml-project/markestream"} -->
 
-- [docs/07-permissions.md](file:///Users/dhkim/Desktop/ml-project/markestream/docs/07-permissions.md)
-  - 근거: 회사·계정·소속·담당 관계와 권한의 비즈니스 의미
-  - SHA-256: `3c2ba88fc33ad89f87d90e11123bcfa186714e8709fea1988dc49d4748049b46`
-<!-- learning:source {"path": "docs/07-permissions.md", "symbol": "", "sha256": "3c2ba88fc33ad89f87d90e11123bcfa186714e8709fea1988dc49d4748049b46", "project_id": "markestream", "project_root": "/Users/dhkim/Desktop/ml-project/markestream"} -->
-
-- [docs/08-registration.md](file:///Users/dhkim/Desktop/ml-project/markestream/docs/08-registration.md)
-  - 근거: 회사 생성 이후 등록 심사와 계정 초대의 별도 흐름
-  - SHA-256: `e121ceabce72ea5827d782dbe26671e6ff06ba310ae39a7f0f5504bdfbbc6f75`
-<!-- learning:source {"path": "docs/08-registration.md", "symbol": "", "sha256": "e121ceabce72ea5827d782dbe26671e6ff06ba310ae39a7f0f5504bdfbbc6f75", "project_id": "markestream", "project_root": "/Users/dhkim/Desktop/ml-project/markestream"} -->
-
-- [docs/adr/005-account-permission-groups.md](file:///Users/dhkim/Desktop/ml-project/markestream/docs/adr/005-account-permission-groups.md)
-  - 근거: 회사와 계정을 분리한 명시적인 설계 결정
-  - SHA-256: `80b184ffeaa130f65cab0a7e11d5e2fb36ea0a2476f8fbfcd5354fd96c138b35`
-<!-- learning:source {"path": "docs/adr/005-account-permission-groups.md", "symbol": "", "sha256": "80b184ffeaa130f65cab0a7e11d5e2fb36ea0a2476f8fbfcd5354fd96c138b35", "project_id": "markestream", "project_root": "/Users/dhkim/Desktop/ml-project/markestream"} -->
+- [apps/admin-web/src/features/clients/useClientManagement.ts](file:///Users/dhkim/Desktop/ml-project/markestream/apps/admin-web/src/features/clients/useClientManagement.ts) · `async function submit()` · 59행 부근
+  - 근거: 생성 POST 요청과 회사 추가 후 운영 승인 절차 안내를 확인한 화면 코드
+  - SHA-256: `2e2ce802b4dc73429b7625c44f6c86ec9c7da34b50dc23d9ce8bb3f00c57b53f`
+<!-- learning:source {"path": "apps/admin-web/src/features/clients/useClientManagement.ts", "symbol": "async function submit()", "sha256": "2e2ce802b4dc73429b7625c44f6c86ec9c7da34b50dc23d9ce8bb3f00c57b53f", "project_id": "markestream", "project_root": "/Users/dhkim/Desktop/ml-project/markestream"} -->
 
 ## 문서를 덮고 답하기
 
@@ -119,4 +126,4 @@ Controller가 인증 주체와 입력을 전달하고, Service의 @Transactional
 
 ## 내 설명과 질문
 
-아직 답변하지 않음. 이 영역은 자동 갱신 시 보존된다.
+첫 실제 답변은 [진단 세션](../../sessions/markestream/client-company-creation.md)에 원문으로 기록했다. 현재는 학습 중이며 추가 질문에 대한 답변을 기다린다. 이 영역의 사용자 필기는 자동 갱신 시 보존한다.

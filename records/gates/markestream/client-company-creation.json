@@ -33,42 +33,34 @@
     },
     {
       "path": "backend/AGENTS.md",
-      "sha256": "6f19614303852d7d5b64881274d0b49415925327be649547f791df6a7b35fd0e"
+      "sha256": "64bc3cb0826e7043335dceef41040d50bfbebca8608e5aefcbfccc0d48e3a6b4"
     },
     {
-      "path": "docs/07-permissions.md",
-      "sha256": "3c2ba88fc33ad89f87d90e11123bcfa186714e8709fea1988dc49d4748049b46"
-    },
-    {
-      "path": "docs/08-registration.md",
-      "sha256": "e121ceabce72ea5827d782dbe26671e6ff06ba310ae39a7f0f5504bdfbbc6f75"
-    },
-    {
-      "path": "docs/adr/005-account-permission-groups.md",
-      "sha256": "80b184ffeaa130f65cab0a7e11d5e2fb36ea0a2476f8fbfcd5354fd96c138b35"
+      "path": "apps/admin-web/src/features/clients/useClientManagement.ts",
+      "sha256": "2e2ce802b4dc73429b7625c44f6c86ec9c7da34b50dc23d9ce8bb3f00c57b53f"
     }
   ],
   "assessments": {
     "technical": {
-      "status": "pending",
-      "question": "회사 저장과 생성자 담당 배정을 하나의 트랜잭션에서 처리하는 이유와 중간 실패 결과를 설명해 주세요.",
-      "answer": null,
-      "evidence": null,
-      "reason": null
+      "status": "learning",
+      "question": "저장 버튼을 누른 뒤, 화면·서버·DB가 각각 어떤 일을 한다고 생각하세요?",
+      "answer": "화면에서 api를 호출하고, 서버가 받고 DB가 생성하는거 아닌가",
+      "evidence": "2026-11-16 현재 학습 대화의 사용자 답변 2번 원문",
+      "reason": "화면의 API 요청과 서버 수신, DB 저장으로 이어지는 큰 흐름을 제시했다. DB가 생성한다는 표현은 DB 자체 생성이라고 단정하지 않고 회사 데이터 저장 의미로 정리한다. 서버의 권한·입력 확인과 객체 생성·DB 저장의 차이는 아직 재확인하지 않았다."
     },
     "business": {
-      "status": "pending",
-      "question": "광고주 회사 생성과 광고주 이용자 계정 생성의 차이, 작업 주체와 대행사 범위를 설명해 주세요.",
-      "answer": null,
-      "evidence": null,
-      "reason": null
+      "status": "learning",
+      "question": "광고주 회사를 추가하면 무엇이 새로 생긴다고 생각하세요? 로그인 계정이나 운영 승인도 함께 생길까요?",
+      "answer": "회사가 생기고, 로그인 계정이나 운영승인은 잘 모르겠다.",
+      "evidence": "2026-11-16 현재 학습 대화의 사용자 답변 1번 원문",
+      "reason": "회사 데이터가 생긴다는 점은 맞다. 로그인 계정·운영 승인과의 차이는 사용자가 모르겠다고 명시해 교육과 재확인이 필요하다."
     },
     "code": {
       "status": "pending",
-      "question": "ClientCompanyController.registerClientCompany부터 권한 확인, 저장, 담당 배정까지 실제 파일과 메서드를 추적해 주세요.",
+      "question": "아래 코드에서 첫째 줄만 실행하고 둘째 줄을 실행하지 않으면, 서버 메모리와 DB에는 각각 무엇이 남을까요?",
       "answer": null,
       "evidence": null,
-      "reason": null
+      "reason": "이제 첫 코드 조각을 제시하는 단계이며 실제 코드 설명 답변은 아직 없다."
     }
   },
   "passed_at": null,
@@ -79,5 +71,9 @@
     "evidence": null,
     "at": null,
     "scope_sha256": null
-  }
+  },
+  "follow_up_questions": [
+    "회사 이름만 등록한 상태에서, 새 담당자의 로그인 계정도 준비됐다고 볼 수 있을까요? 이유를 설명해 주세요.",
+    "아래 코드에서 첫째 줄만 실행하고 둘째 줄을 실행하지 않으면, 서버 메모리와 DB에는 각각 무엇이 남을까요?"
+  ]
 }

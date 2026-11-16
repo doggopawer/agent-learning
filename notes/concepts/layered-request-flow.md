@@ -2,7 +2,7 @@
 title: "계층별 책임과 요청 흐름"
 type: concept
 project_id: null
-learning_status: not-started
+learning_status: learning
 experiment_status: not-run
 created: "2026-11-16"
 tags: [learning]
@@ -28,7 +28,7 @@ tags: [learning]
 
 ## 비즈니스 규칙
 
-- 이 노트는 준비 자료이며 사용자 답변이나 이해도 통과 기록이 없다.
+- 화면→API→서버→DB의 큰 흐름에 대한 첫 사용자 답변이 있다. 서버 역할과 실제 코드 설명은 학습 중이며 이해도 통과 기록은 없다.
 - 각 계층의 구체적인 책임은 프로젝트의 현재 코드·규칙으로 확인한다.
 
 ## 실제 처리 흐름
@@ -36,6 +36,12 @@ tags: [learning]
 학습 순서: 요청 진입점 찾기 → 호출하는 업무 메서드 찾기 → 권한·도메인·저장 호출 찾기 → 응답 위치 찾기.
 
 실제 적용은 [광고주 회사 생성](../projects/markestream/client-company-creation.md), 답변 기록은 [진단 세션](../sessions/markestream/client-company-creation.md)에서 연결한다.
+
+## 객체 생성과 DB 저장
+
+서버는 요청을 받은 뒤 입력·권한 규칙을 확인하고 저장할 데이터를 구성한다. 서버 메모리에 객체를 만드는 단계와 DB에 데이터를 저장하도록 요청하는 단계를 구분해 읽는다.
+
+[회사 생성의 실제 두 줄](../projects/markestream/client-company-creation.md#이번에%20읽을%20두%20줄)과 [사용자 답변·재질문](../sessions/markestream/client-company-creation.md)을 연결한다. 실제 테스트·실행 검증은 하지 않았다.
 
 ## 설계 근거와 해석
 
@@ -53,4 +59,4 @@ tags: [learning]
 
 ## 내 설명과 질문
 
-아직 답변하지 않음. 이 영역은 자동 갱신 시 보존된다.
+첫 실제 답변은 [진단 세션](../sessions/markestream/client-company-creation.md)에 원문으로 기록했다. 현재는 학습 중이며 추가 질문에 대한 답변을 기다린다. 이 영역의 사용자 필기는 자동 갱신 시 보존한다.

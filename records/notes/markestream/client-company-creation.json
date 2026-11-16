@@ -9,8 +9,8 @@
     "실제 ClientCompanyService는 회사 저장 뒤 RelationshipService.assignCreator를 호출한다. 원본 권한 명세는 생성자가 대행사 직원이면 담당 관계를 연결한다고 설명한다.",
     "회사 생성만으로 회사 심사 승인이나 광고주 계정 가입·초대 수락이 완료되지는 않는다. 회사 등록·검증·초대 명세를 함께 확인해야 한다."
   ],
-  "flow": "```mermaid\nflowchart TD\n    controller[\"ClientCompanyController.registerClientCompany\"] --> service[\"ClientCompanyService.registerClientCompany\"]\n    service --> permission[\"requireClientCompanyCreationPermission / client.create\"]\n    permission --> domain[\"ClientCompany.register\"]\n    domain --> save[\"ClientCompanyRepository.saveAndFlush\"]\n    save --> assign[\"RelationshipService.assignCreator\"]\n    assign --> response[\"결과 변환과 HTTP 201 응답\"]\n```\n\nController가 인증 주체와 입력을 전달하고, Service의 @Transactional 메서드가 권한 확인·생성·저장·담당 배정을 조율한다. saveAndFlush 호출은 그 자체로 전체 트랜잭션 커밋이 끝났다는 뜻이 아니다. 여기서는 코드와 선언을 읽었으며 실제 오류·롤백 실험은 수행하지 않았다.\n\n## 연결된 개념과 학습\n\n- [계층별 책임과 요청 흐름](../../concepts/layered-request-flow.md): Controller에서 Service·권한·저장·응답으로 이어지는 역할을 추적한다.\n- [트랜잭션 경계](../../concepts/transaction-boundaries.md): 회사 저장과 담당 배정을 어느 메서드가 함께 조율하는지 확인한다.\n- [인증과 인가](../../concepts/authentication-and-authorization.md): 로그인 주체와 대행사 범위·client.create 작업 권한을 구분한다.\n- [첫 진단 세션](../../sessions/markestream/client-company-creation.md): 위 개념을 실제 사용자 답변과 연결해 확인한다. 현재 미응답이다.\n- [전체 학습 지도](../../maps/learning-map.md): 공통 개념·적용 사례·학습 순서를 함께 본다.",
-  "design_reasoning": "명시된 근거: backend/AGENTS.md는 api → application → domain/repository 책임과 application의 트랜잭션 조율을 정한다. ADR-005는 회사·계정 분리와 권한 판정의 선택 이유를 기록한다.\n\n멘토의 해석: 이 분리는 HTTP 입력 처리, 업무 권한, 회사 상태, DB 접근을 각각 추적하기 쉽게 한다. 작성자의 추가 의도나 실제 성능 효과까지 확인한 것은 아니다. 구체적인 권한 동시성 규칙은 관련 구현과 ADR을 읽고 별도로 검증한다.",
+  "flow": "```mermaid\nflowchart TD\n    controller[\"ClientCompanyController.registerClientCompany\"] --> service[\"ClientCompanyService.registerClientCompany\"]\n    service --> permission[\"requireClientCompanyCreationPermission / client.create\"]\n    permission --> domain[\"ClientCompany.register\"]\n    domain --> save[\"ClientCompanyRepository.saveAndFlush\"]\n    save --> assign[\"RelationshipService.assignCreator\"]\n    assign --> response[\"결과 변환과 HTTP 201 응답\"]\n```\n\nController가 인증 주체와 입력을 전달하고, Service의 @Transactional 메서드가 권한 확인·생성·저장·담당 배정을 조율한다. saveAndFlush 호출은 그 자체로 전체 트랜잭션 커밋이 끝났다는 뜻이 아니다. 여기서는 코드와 선언을 읽었으며 실제 오류·롤백 실험은 수행하지 않았다.\n\n## 연결된 개념과 학습\n\n- [계층별 책임과 요청 흐름](../../concepts/layered-request-flow.md): Controller에서 Service·권한·저장·응답으로 이어지는 역할을 추적한다.\n- [트랜잭션 경계](../../concepts/transaction-boundaries.md): 회사 저장과 담당 배정을 어느 메서드가 함께 조율하는지 확인한다.\n- [인증과 인가](../../concepts/authentication-and-authorization.md): 로그인 주체와 대행사 범위·client.create 작업 권한을 구분한다.\n- [첫 진단 세션](../../sessions/markestream/client-company-creation.md): 위 개념을 실제 사용자 답변과 연결해 확인한다. 현재 미응답이다.\n- [전체 학습 지도](../../maps/learning-map.md): 공통 개념·적용 사례·학습 순서를 함께 본다.\n\n## 이번 학습: 회사·계정·승인 구분\n\n회사 추가는 서비스에서 다룰 회사 정보를 등록하는 일이다. 로그인하는 사람의 계정과 회사의 운영 승인은 별도 절차이며, 회사 추가만으로 새 로그인 계정이나 운영 승인이 만들어지지는 않는다. 생성자 담당 관계를 연결하는 일도 새 로그인 계정 생성과 구분한다.\n\n## 이번에 읽을 두 줄\n\n```java\nClientCompany client = ClientCompany.register(agencyCompanyId, name, clock.instant());\nvar saved = clients.saveAndFlush(client);\n```\n\n첫째 줄은 서버 메모리에 회사 객체를 구성하고, 둘째 줄은 Repository를 통해 DB 저장을 요청한다. 저장 요청을 전체 트랜잭션 커밋 완료와 같은 뜻으로 설명하지 않는다. 화면은 회사 이름을 API로 전달하고 서버는 권한·입력 규칙을 확인하며 업무를 처리한다.\n\n이 내용은 [실제 답변과 재질문](../../sessions/markestream/client-company-creation.md)에 연결한다. 기술·업무는 학습 중이고 코드 이해도는 아직 답변 대기다.",
+  "design_reasoning": "명시된 근거: backend/AGENTS.md는 api → application → domain/repository 책임과 application의 트랜잭션 조율을 정한다. ADR-005는 회사·계정 분리와 권한 판정의 선택 이유를 기록한다.\n\n멘토의 해석: 이 분리는 HTTP 입력 처리, 업무 권한, 회사 상태, DB 접근을 각각 추적하기 쉽게 한다. 작성자의 추가 의도나 실제 성능 효과까지 확인한 것은 아니다. 구체적인 권한 동시성 규칙은 관련 구현과 ADR을 읽고 별도로 검증한다.\n\n이관 후 설계 자료: [계정·회사·권한 명세](reference/07-permissions.md), [회사 등록·검증·초대](reference/08-registration.md), [ADR-005: 회사·계정 분리](adr/005-account-permission-groups.md). 기존 설계 내용은 해당 노트에 보존했고, 원본 문서 삭제 후에도 이 링크에서 읽을 수 있다.",
   "questions": [
     "회사 저장 뒤 담당 배정에서 예외가 나면 트랜잭션에 어떤 결과를 기대하며, 어떤 테스트로 확인할까?",
     "광고주 회사 생성과 광고주 이용자 가입·초대 수락은 어떻게 다른가?",
@@ -53,19 +53,10 @@
       "role": "design"
     },
     {
-      "path": "docs/07-permissions.md",
-      "purpose": "회사·계정·소속·담당 관계와 권한의 비즈니스 의미",
-      "role": "design"
-    },
-    {
-      "path": "docs/08-registration.md",
-      "purpose": "회사 생성 이후 등록 심사와 계정 초대의 별도 흐름",
-      "role": "design"
-    },
-    {
-      "path": "docs/adr/005-account-permission-groups.md",
-      "purpose": "회사와 계정을 분리한 명시적인 설계 결정",
-      "role": "design"
+      "path": "apps/admin-web/src/features/clients/useClientManagement.ts",
+      "role": "code",
+      "symbol": "async function submit()",
+      "purpose": "생성 POST 요청과 회사 추가 후 운영 승인 절차 안내를 확인한 화면 코드"
     }
   ],
   "kind": "project",

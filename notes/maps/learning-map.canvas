@@ -1,182 +1,29 @@
 {
-  "nodes": [
-    {
-      "id": "concepts",
-      "type": "group",
-      "x": -770,
-      "y": -420,
-      "width": 450,
-      "height": 900,
-      "label": "01   개념을 이해하기",
-      "color": "#9785d4"
-    },
-    {
-      "id": "application",
-      "type": "group",
-      "x": 330,
-      "y": -420,
-      "width": 470,
-      "height": 620,
-      "label": "02   실제 코드에 적용하기",
-      "color": "#62b3ab"
-    },
-    {
-      "id": "reflection",
-      "type": "group",
-      "x": 330,
-      "y": 270,
-      "width": 470,
-      "height": 340,
-      "label": "03   내 말로 확인하기",
-      "color": "#d0a361"
-    },
-    {
-      "id": "layers",
-      "type": "text",
-      "x": -730,
-      "y": -360,
-      "width": 370,
-      "height": 220,
-      "text": "**CONCEPT 01**\n\n## 요청 흐름과 역할\n\n어느 함수가 무엇을 맡는지, 요청이 지나가는 길부터 살펴봐요.\n\n[[concepts/layered-request-flow.md|개념 노트 열기 →]]",
-      "color": "#9785d4"
-    },
-    {
-      "id": "transaction",
-      "type": "text",
-      "x": -730,
-      "y": -80,
-      "width": 370,
-      "height": 220,
-      "text": "**CONCEPT 02**\n\n## 트랜잭션 경계\n\n여러 저장 작업을 어디까지 함께 처리할지 연결해서 생각해요.\n\n[[concepts/transaction-boundaries.md|개념 노트 열기 →]]",
-      "color": "#9785d4"
-    },
-    {
-      "id": "authorization",
-      "type": "text",
-      "x": -730,
-      "y": 200,
-      "width": 370,
-      "height": 220,
-      "text": "**CONCEPT 03**\n\n## 인증과 인가\n\n누구인지 확인하는 일과 무엇을 허용할지 판단하는 일을 살펴봐요.\n\n[[concepts/authentication-and-authorization.md|개념 노트 열기 →]]",
-      "color": "#9785d4"
-    },
-    {
-      "id": "hub",
-      "type": "text",
-      "x": -190,
-      "y": -80,
-      "width": 340,
-      "height": 250,
-      "text": "**LEARNING ATLAS**\n\n# 나의 학습 지도\n\n개념을 연결하고,\n실제 코드로 이해하기.\n\n**현재 · 학습 준비 단계**\n\n[[maps/learning-map.md|연결 목록과 학습 상태 →]]",
-      "color": "#659bd0"
-    },
-    {
-      "id": "project",
-      "type": "text",
-      "x": 370,
-      "y": -360,
-      "width": 390,
-      "height": 250,
-      "text": "**PROJECT / MARKESTREAM**\n\n## 광고주 회사 생성\n\n공통 개념이 실제 메서드와 업무 규칙 안에서 어떻게 쓰이는지 확인해요.\n\n[[projects/markestream/client-company-creation.md|코드와 설계 근거 열기 →]]",
-      "color": "#62b3ab"
-    },
-    {
-      "id": "flow",
-      "type": "text",
-      "x": 370,
-      "y": -40,
-      "width": 390,
-      "height": 180,
-      "text": "**CODE WALKTHROUGH**\n\n## 요청부터 저장까지\n\n진입점 → 업무 처리 → 권한 확인\n→ 회사 저장 → 담당 배정 → 응답\n\n[[projects/markestream/client-company-creation.md#실제 처리 흐름|실제 코드 흐름 따라가기 →]]",
-      "color": "#62b3ab"
-    },
-    {
-      "id": "session",
-      "type": "text",
-      "x": 370,
-      "y": 330,
-      "width": 390,
-      "height": 230,
-      "text": "**REFLECTION / 미응답**\n\n## 내 말로 설명하기\n\n질문 → 나의 답변 → 보충 설명 → 재질문\n\n[[sessions/markestream/client-company-creation.md|진단 질문과 답변 열기 →]]",
-      "color": "#d0a361"
-    },
-    {
-      "id": "next",
-      "type": "text",
-      "x": -190,
-      "y": 330,
-      "width": 340,
-      "height": 230,
-      "text": "**NEXT STEP**\n\n## 하나씩 연결해 가요\n\n준비된 가지부터 시작하고,\n배운 개념을 지도에 이어 붙여요.\n\n이해 확인 후 학습 상태를 갱신해요."
-    }
-  ],
-  "edges": [
-    {
-      "id": "hub-layers",
-      "fromNode": "hub",
-      "toNode": "layers",
-      "fromSide": "left",
-      "toSide": "right",
-      "color": "#9785d4"
-    },
-    {
-      "id": "hub-transaction",
-      "fromNode": "hub",
-      "toNode": "transaction",
-      "fromSide": "left",
-      "toSide": "right",
-      "color": "#9785d4"
-    },
-    {
-      "id": "hub-authorization",
-      "fromNode": "hub",
-      "toNode": "authorization",
-      "fromSide": "left",
-      "toSide": "right",
-      "color": "#9785d4"
-    },
-    {
-      "id": "hub-project",
-      "fromNode": "hub",
-      "toNode": "project",
-      "fromSide": "right",
-      "toSide": "left",
-      "color": "#62b3ab",
-      "label": "실제 적용"
-    },
-    {
-      "id": "project-flow",
-      "fromNode": "project",
-      "toNode": "flow",
-      "fromSide": "bottom",
-      "toSide": "top",
-      "color": "#62b3ab"
-    },
-    {
-      "id": "flow-session",
-      "fromNode": "flow",
-      "toNode": "session",
-      "fromSide": "bottom",
-      "toSide": "top",
-      "color": "#d0a361",
-      "label": "이해 확인"
-    },
-    {
-      "id": "session-next",
-      "fromNode": "session",
-      "toNode": "next",
-      "fromSide": "left",
-      "toSide": "right",
-      "color": "#d0a361"
-    },
-    {
-      "id": "next-hub",
-      "fromNode": "next",
-      "toNode": "hub",
-      "fromSide": "top",
-      "toSide": "bottom",
-      "color": "#659bd0",
-      "label": "다음 학습"
-    }
-  ]
+	"nodes":[
+		{"id":"concepts","type":"group","x":-770,"y":-420,"width":450,"height":900,"label":"01   개념을 이해하기","color":"#9785d4"},
+		{"id":"application","type":"group","x":330,"y":-420,"width":470,"height":620,"label":"02   실제 코드에 적용하기","color":"#62b3ab"},
+		{"id":"reflection","type":"group","x":330,"y":270,"width":470,"height":340,"label":"03   내 말로 확인하기","color":"#d0a361"},
+		{"id":"layers","type":"text","x":-730,"y":-360,"width":370,"height":220,"text":"**CONCEPT 01 / 학습 중**\n\n## 요청 흐름과 역할\n\n화면 → 서버의 판단 → DB 저장\n객체 생성과 DB 저장을 구분해 봐요.\n\n[[concepts/layered-request-flow.md|개념 노트 열기 →]]","color":"#9785d4"},
+		{"id":"transaction","type":"text","x":-730,"y":-80,"width":370,"height":220,"text":"**CONCEPT 02**\n\n## 트랜잭션 경계\n\n여러 저장 작업을 어디까지 함께 처리할지 연결해서 생각해요.\n\n[[concepts/transaction-boundaries.md|개념 노트 열기 →]]","color":"#9785d4"},
+		{"id":"authorization","type":"text","x":-730,"y":200,"width":370,"height":220,"text":"**CONCEPT 03**\n\n## 인증과 인가\n\n누구인지 확인하는 일과 무엇을 허용할지 판단하는 일을 살펴봐요.\n\n[[concepts/authentication-and-authorization.md|개념 노트 열기 →]]","color":"#9785d4"},
+		{"id":"hub","type":"text","x":-190,"y":-80,"width":340,"height":250,"text":"**LEARNING ATLAS**\n\n# 나의 학습 지도\n\n개념을 연결하고,\n실제 코드로 이해하기.\n\n**현재 · 기본 흐름 학습 중**\n\n[[maps/learning-map.md|연결 목록과 학습 상태 →]]","color":"#659bd0"},
+		{"id":"project","type":"text","x":370,"y":-360,"width":390,"height":250,"text":"**PROJECT / MARKESTREAM**\n\n## 광고주 회사 생성\n\n공통 개념이 실제 메서드와 업무 규칙 안에서 어떻게 쓰이는지 확인해요.\n\n[[projects/markestream/client-company-creation.md|코드와 설계 근거 열기 →]]","color":"#62b3ab"},
+		{"id":"flow","type":"text","x":370,"y":-40,"width":390,"height":180,"text":"**CODE WALKTHROUGH**\n\n## 요청부터 저장까지\n\n진입점 → 업무 처리 → 권한 확인\n→ 회사 저장 → 담당 배정 → 응답\n\n[[projects/markestream/client-company-creation.md#실제 처리 흐름|실제 코드 흐름 따라가기 →]]","color":"#62b3ab"},
+		{"id":"session","type":"text","x":370,"y":330,"width":390,"height":230,"text":"**REFLECTION / 학습 중**\n\n## 첫 답변을 남겼어요\n\n회사·계정·승인 구분을 보충했어요.\n코드 이해 확인은 답변 대기 중이에요.\n\n[[sessions/markestream/client-company-creation.md|답변과 다음 질문 열기 →]]","color":"#d0a361"},
+		{"id":"next","type":"text","x":-190,"y":330,"width":340,"height":230,"text":"**NEXT / 대화와 자기 설명**\n\n## 내가 이해한 말로\n\n서로 묻고 흐름을 이해한 뒤\n내 표현으로 정리해 남겨요.\n\n[[sessions/markestream/client-company-creation.md|대화와 내 설명 이어가기 →]]"},
+		{"id":"markestream-roadmap","type":"text","x":-190,"y":-420,"width":340,"height":220,"color":"#659bd0","text":"**MARKESTREAM / 학습 순서**\n\n## 기존 기능을 하나씩\n\n회사 추가 → 로그인·권한 → 등록·초대\n→ 랜딩 편집 → 게시 → 문의·상담\n\n[[projects/markestream/learning-roadmap.md|기능별 학습 순서 보기 →]]"},
+		{"id":"markestream-imported-docs","type":"text","x":-190,"y":-740,"width":340,"height":250,"color":"#659bd0","text":"**SOURCE / 기존 docs**\n\n## 이전에 공부한 개념\n\nVPC·NAT·Kubernetes·라우팅\n기존 개념 10개와 설계·학습 기록\n\n[[maps/network-request-flow.canvas|개념 연결 지도 →]]\n[[projects/markestream/imported-learning.md|전체 이관 목차 →]]"}
+	],
+	"edges":[
+		{"id":"hub-layers","fromNode":"hub","toNode":"layers","fromSide":"left","toSide":"right","color":"#9785d4"},
+		{"id":"hub-transaction","fromNode":"hub","toNode":"transaction","fromSide":"left","toSide":"right","color":"#9785d4"},
+		{"id":"hub-authorization","fromNode":"hub","toNode":"authorization","fromSide":"left","toSide":"right","color":"#9785d4"},
+		{"id":"hub-project","fromNode":"hub","toNode":"project","fromSide":"right","toSide":"left","color":"#62b3ab","label":"실제 적용"},
+		{"id":"project-flow","fromNode":"project","toNode":"flow","fromSide":"bottom","toSide":"top","color":"#62b3ab"},
+		{"id":"flow-session","fromNode":"flow","toNode":"session","fromSide":"bottom","toSide":"top","color":"#d0a361","label":"이해 확인"},
+		{"id":"session-next","fromNode":"session","toNode":"next","fromSide":"left","toSide":"right","color":"#d0a361"},
+		{"id":"next-hub","fromNode":"next","toNode":"hub","fromSide":"top","toSide":"bottom","color":"#659bd0","label":"다음 학습"},
+		{"id":"hub-markestream-roadmap","fromNode":"hub","fromSide":"top","toNode":"markestream-roadmap","toSide":"bottom","color":"#659bd0"},
+		{"id":"roadmap-imported-docs","fromNode":"markestream-roadmap","fromSide":"top","toNode":"markestream-imported-docs","toSide":"bottom","color":"#659bd0","label":"기존 개념과 연결"}
+	]
 }
