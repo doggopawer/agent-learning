@@ -1,0 +1,6 @@
+interface:
+  display_name: "공통 학습 Obsidian 노트"
+  short_description: "실제 코드와 설계 근거를 연결해 별도 학습 보관함에 기록"
+  default_prompt: "$obsidian-notes로 이번 학습을 실제 코드·비즈니스 규칙·설계 근거와 연결해서 정리해 줘."
+policy:
+  allow_implicit_invocation: false

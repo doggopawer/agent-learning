@@ -1,0 +1,22 @@
+# Local Python and editor artifacts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.DS_Store
+*.swp
+
+# Local secrets; sanitized examples may be tracked
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Obsidian's per-device session state
+notes/.obsidian/workspace*.json
+notes/.obsidian/cache/
+notes/.trash/

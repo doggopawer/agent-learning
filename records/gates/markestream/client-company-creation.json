@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "task_id": "client-company-creation",
+  "scope": {
+    "goal": "",
+    "allowed_paths": [],
+    "exclusions": [
+      "학습 시스템 설치 승인은 제품 구현 승인이 아니다."
+    ],
+    "project_id": "markestream",
+    "project_root": "/Users/dhkim/Desktop/ml-project/markestream"
+  },
+  "sources": [
+    {
+      "path": "backend/admin-api/src/main/java/com/markestream/admin/clientcompany/api/ClientCompanyController.java",
+      "sha256": "bff107ba428db8005c479034074d7065f156f88d468a4b34915cef0c0c88de3d"
+    },
+    {
+      "path": "backend/admin-api/src/main/java/com/markestream/admin/clientcompany/application/ClientCompanyService.java",
+      "sha256": "c0e59ded655f84d3e492e837674e4a747f47c8de12d288cec993bee5fab0e92e"
+    },
+    {
+      "path": "backend/admin-api/src/main/java/com/markestream/admin/permission/application/PermissionAccessService.java",
+      "sha256": "9588cbc9788d37709f49dc37b5445a5e887f2cdcdaf39fb83bbcf6f09e5c6542"
+    },
+    {
+      "path": "backend/admin-api/src/main/java/com/markestream/admin/clientcompany/domain/ClientCompany.java",
+      "sha256": "e2eb9bff90dad5dd6f56d2089056ee66644c180ee9fe9305b37d71c1abacd92d"
+    },
+    {
+      "path": "backend/admin-api/src/main/java/com/markestream/admin/permission/application/RelationshipService.java",
+      "sha256": "724ac11d70aa7ef7b1c6ca837015ad8d8fcb237f1c6da7b54dfbba0489b29b20"
+    },
+    {
+      "path": "backend/AGENTS.md",
+      "sha256": "6f19614303852d7d5b64881274d0b49415925327be649547f791df6a7b35fd0e"
+    },
+    {
+      "path": "docs/07-permissions.md",
+      "sha256": "3c2ba88fc33ad89f87d90e11123bcfa186714e8709fea1988dc49d4748049b46"
+    },
+    {
+      "path": "docs/08-registration.md",
+      "sha256": "e121ceabce72ea5827d782dbe26671e6ff06ba310ae39a7f0f5504bdfbbc6f75"
+    },
+    {
+      "path": "docs/adr/005-account-permission-groups.md",
+      "sha256": "80b184ffeaa130f65cab0a7e11d5e2fb36ea0a2476f8fbfcd5354fd96c138b35"
+    }
+  ],
+  "assessments": {
+    "technical": {
+      "status": "pending",
+      "question": "회사 저장과 생성자 담당 배정을 하나의 트랜잭션에서 처리하는 이유와 중간 실패 결과를 설명해 주세요.",
+      "answer": null,
+      "evidence": null,
+      "reason": null
+    },
+    "business": {
+      "status": "pending",
+      "question": "광고주 회사 생성과 광고주 이용자 계정 생성의 차이, 작업 주체와 대행사 범위를 설명해 주세요.",
+      "answer": null,
+      "evidence": null,
+      "reason": null
+    },
+    "code": {
+      "status": "pending",
+      "question": "ClientCompanyController.registerClientCompany부터 권한 확인, 저장, 담당 배정까지 실제 파일과 메서드를 추적해 주세요.",
+      "answer": null,
+      "evidence": null,
+      "reason": null
+    }
+  },
+  "passed_at": null,
+  "assessed_scope_sha256": null,
+  "approval": {
+    "status": "pending",
+    "message": null,
+    "evidence": null,
+    "at": null,
+    "scope_sha256": null
+  }
+}
