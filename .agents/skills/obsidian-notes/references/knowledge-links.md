@@ -1,6 +1,6 @@
 # 개념 연결과 학습 지도
 
-사용자는 공부한 개념과 코드 흐름이 서로 연결되어 보이기를 원한다. 노트의 본문 링크는 Obsidian 그래프·백링크에, Mermaid는 학습 순서와 관계의 설명에 사용한다.
+사용자는 공부한 개념과 코드 흐름이 서로 연결되어 보이기를 원하며, 시각적으로 정돈된 카드형 지도를 선호한다. 기본 지도는 Obsidian Canvas, 노트의 본문 링크는 그래프·백링크, Mermaid는 개별 코드 흐름과 문서 내 요약에 사용한다.
 
 ## 무엇을 연결하나
 
@@ -14,8 +14,8 @@
 
 1. 재사용할 가치가 있는 개념만 별도 노트로 만든다. 한 번 등장한 용어마다 빈 노트를 대량 생성하지 않는다. 대상 노트가 존재하는지 확인한다.
 2. 생성기 입력의 `flow` 또는 `design_reasoning`에 실제 상대 Markdown 링크와 관계 설명을 넣는다. 관계를 재생성해도 유지하도록 `records/notes/` 입력도 갱신한다. 스키마에 없는 임의 필드를 넣지 않는다.
-3. 학습 지도 `notes/maps/learning-map.md`에 큰 주제 → 개념 → 프로젝트 적용 순서를 Mermaid `mindmap`으로 갱신한다. 순서·인과·교차 관계는 짧은 `flowchart`로 설명할 수 있다. 지도는 멘토가 학습 교환을 기록할 때 함께 편집한다. 상시 실행 프로세스는 없다.
-4. 그림 아래에는 같은 노트로 가는 본문 링크와 관계 설명을 반드시 남긴다. Mermaid 안의 선·링크만으로는 Obsidian 그래프에 연결이 생성되지 않는다.
+3. 기본 지도 `notes/maps/learning-map.canvas`를 학습 교환 기록과 함께 편집한다. 중앙 주제, 보라색 공통 개념, 청록색 코드 적용, 황토색 이해 확인 그룹을 유지한다. 카드에는 짧은 제목·요약·실제 노트의 보관함 기준 위키링크를 넣고, 연결선은 흐름이 보이도록 필요한 만큼 둔다. 카드 겹침·잘린 본문을 피하고 기존 ID·사용자 배치를 초기화하지 않는다. 상시 실행 프로세스는 없다.
+4. `notes/maps/learning-map.md`에도 관계 설명·실제 노트 링크·상태를 남긴다. Canvas의 텍스트 카드와 연결선 또는 Mermaid만으로 노트의 백링크가 만들어진다고 가정하지 않는다. 실제 개념·프로젝트·세션 노트 본문에도 서로 가는 링크를 보존한다.
 5. 준비 자료는 `not-started`, 실제 학습 중은 `learning`, 이해 확인은 실제 평가 근거가 있을 때만 `passed`로 표시한다. 개념 이해와 프로젝트별 평가·구현 승인은 각각 구분한다. 새 노트를 만들었다는 이유로 통과시켜서는 안 된다.
 6. `notes.py check`로 소스 근거를 점검하고, 새 내부 링크가 보관함 안의 실제 노트로 연결되는지 확인한다. 노트 생성 영역 밖의 사용자 필기와 기존 마인드맵의 무관한 가지를 보존한다.
 
@@ -23,6 +23,6 @@
 
 ## 보는 방법
 
-Obsidian에서 `notes`를 보관함으로 열고 `maps/learning-map.md`를 읽는다. 명령 팔레트의 **Graph view: Open graph view**는 전체 링크, **Open local graph**는 현재 노트 주변 관계를 보여 준다. 로컬 그래프 깊이를 늘리면 개념 → 적용 사례 → 세션까지 따라갈 수 있다.
+Obsidian에서 `notes`를 보관함으로 열고 `maps/learning-map.canvas`를 연다. 카드를 이동·확대하고 링크에서 실제 노트로 간다. `maps/learning-map.md`는 연결 목록과 상태를 보여 준다. 명령 팔레트의 **Graph view: Open graph view**는 전체 링크, **Open local graph**는 현재 노트 주변 관계를 보여 준다. 로컬 그래프 깊이를 늘리면 개념 → 적용 사례 → 세션까지 따라갈 수 있다.
 
-공식 문서: [그래프 보기](https://help.obsidian.md/plugins/graph), [Mermaid와 내부 링크](https://help.obsidian.md/advanced-syntax), [마인드맵 문법](https://mermaid.js.org/syntax/mindmap.html).
+공식 문서: [Canvas](https://help.obsidian.md/plugins/canvas), [JSON Canvas 형식](https://jsoncanvas.org/spec/1.0/), [그래프 보기](https://help.obsidian.md/plugins/graph), [Mermaid와 내부 링크](https://help.obsidian.md/advanced-syntax).

@@ -17,6 +17,7 @@ venv/
 *.pfx
 
 # Obsidian's per-device session state
+notes/.obsidian/
 notes/.obsidian/workspace*.json
 notes/.obsidian/cache/
 notes/.trash/

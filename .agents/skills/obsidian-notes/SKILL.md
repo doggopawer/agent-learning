@@ -12,7 +12,7 @@ description: "명시적으로 요청한 학습 세션에서 공통 개념과 프
 1. 공통 개념은 `notes/concepts/`, 실제 적용은 `notes/projects/<project-id>/`에서 기존 노트를 찾는다. 같은 이름의 주제라도 다른 프로젝트 파일을 덮어쓰지 않는다. [개념 연결과 지도 규칙](references/knowledge-links.md)에 따라 공통 개념·프로젝트 사례·세션을 의미 있는 상대 링크로 연결한다. 코드 경로·심볼과 관련 PRD·ADR을 직접 읽고, 현재 사실·설계 근거·멘토의 해석을 나눈다. 이전 대화 내용을 추측하지 않는다.
 2. [입력 형식](references/note-format.md)에 따라 `records/notes/<project-id>/<slug>.json` (공통 개념은 `records/notes/concepts/<slug>.json`)을 작성하거나 갱신한다. 사용자 필기와 답변은 별도 세션에 그대로 보존한다.
 3. `python3 "S/scripts/notes.py" upsert --input "W/records/notes/<project-id>/<slug>.json"`을 실행한다. `S`, `W`는 확인한 절대 경로로 바꾸며 공통 개념 입력은 `concepts/`를 사용한다. 주제 노트의 생성 영역만 갱신한다. 생성 영역이 없거나 손상된 기존 문서는 덮어쓰지 말고 병합 위치를 검토한다.
-4. `notes/sessions/<project-id>/` (공통 개념은 `notes/sessions/concepts/`)에 실제 질문·답변·보충 설명·남은 질문을 기록하고 주제 노트로 연결한다. `notes/maps/learning-map.md`의 Mermaid 마인드맵·관계별 링크·학습 상태를 현재 세션과 함께 갱신한다. `notes/index.md`에 새 노트나 주제 지도를 연결한다. 기존 기록을 반복 복사하지 않는다.
+4. `notes/sessions/<project-id>/` (공통 개념은 `notes/sessions/concepts/`)에 실제 질문·답변·보충 설명·남은 질문을 기록하고 주제 노트로 연결한다. 기본 시각 지도인 `notes/maps/learning-map.canvas`와 `notes/maps/learning-map.md`의 관계별 링크·학습 상태를 현재 세션과 함께 갱신한다. 기존 카드 ID·사용자 배치를 보존하고 관련 가지만 추가·수정한다. `notes/index.md`에 새 노트나 주제 지도를 연결한다. 기존 기록을 반복 복사하지 않는다.
 5. `notes.py check`로 경로·심볼·소스 지문을 확인한다. 원본 변경을 발견하면 노트 내용과 평가 영향을 검토한 뒤 갱신한다. 파일이 같다는 이유로 내용의 정확성까지 보장됐다고 표현하지 않는다.
 
 ## 기록 기준

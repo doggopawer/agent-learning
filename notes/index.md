@@ -10,7 +10,7 @@ tags: [learning]
 
 [학습 진행 방법과 실행 명령](learning-workflow.md)
 
-**[학습 연결 지도와 마인드맵](maps/learning-map.md)**에서 개념·프로젝트 적용·학습 세션의 관계를 한눈에 본다.
+**[카드형 학습 지도](maps/learning-map.canvas)**에서 개념·프로젝트 적용·학습 세션을 펼쳐 본다. [연결 목록과 학습 상태](maps/learning-map.md)도 함께 확인할 수 있다.
 
 어느 프로젝트의 Codex 채팅에서든 **`$learning-mentor`** 한 줄로 시작한다. 멘토가 현재 프로젝트를 확인하고 필요한 질문을 먼저 한다.
 
