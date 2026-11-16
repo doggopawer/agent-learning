@@ -29,6 +29,14 @@ tags: [markestream, learning, assessment]
 
 [광고주 회사 생성과 권한 경계](../../projects/markestream/client-company-creation.md). 멘토는 사용자의 설명을 먼저 듣고 필요한 부분만 보충한다.
 
+## 연결된 개념과 학습 순서
+
+1. [계층별 책임과 요청 흐름](../../concepts/layered-request-flow.md): 실제 호출 경로를 먼저 찾는다.
+2. [트랜잭션 경계](../../concepts/transaction-boundaries.md): 여러 저장 단계의 범위와 실패 시 예상 결과를 설명한다.
+3. [인증과 인가](../../concepts/authentication-and-authorization.md): 요청 주체·대상 회사·작업 권한을 구분한다.
+
+[학습 연결 지도](../../maps/learning-map.md)에서 각 개념과 이 세션의 관계를 볼 수 있다. 위 항목은 준비된 학습 경로이며 실제 학습 완료를 뜻하지 않는다.
+
 ## 평가와 승인
 
 구조화된 기록은 학습 작업공간의 `records/gates/markestream/client-company-creation.json`에 있다. 구현 범위는 아직 정하지 않았다. 학습 자료를 만들었다는 이유로 통과시키지 않는다.

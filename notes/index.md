@@ -10,11 +10,19 @@ tags: [learning]
 
 [학습 진행 방법과 실행 명령](learning-workflow.md)
 
+**[학습 연결 지도와 마인드맵](maps/learning-map.md)**에서 개념·프로젝트 적용·학습 세션의 관계를 한눈에 본다.
+
 어느 프로젝트의 Codex 채팅에서든 **`$learning-mentor`** 한 줄로 시작한다. 멘토가 현재 프로젝트를 확인하고 필요한 질문을 먼저 한다.
 
 ## 공통 개념
 
 `concepts/`에 주제별 원리·적용 조건·복습 질문을 쌓는다. 프로젝트별 사례를 연결하되 프로젝트 이해도 평가나 승인을 공유하지 않는다. [개념 양식](templates/concept.md)을 참고한다.
+
+현재는 첫 사례와 연결한 준비 자료다. 아래 주제에 대한 실제 사용자 답변·평가 통과 기록은 아직 없다.
+
+- [계층별 책임과 요청 흐름](concepts/layered-request-flow.md)
+- [트랜잭션 경계](concepts/transaction-boundaries.md)
+- [인증과 인가](concepts/authentication-and-authorization.md)
 
 ## 프로젝트 사례
 

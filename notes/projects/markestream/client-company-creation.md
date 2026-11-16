@@ -2,7 +2,7 @@
 title: "광고주 회사 생성과 권한 경계"
 type: project
 project_id: markestream
-learning_status: learning
+learning_status: not-started
 experiment_status: not-run
 created: "2026-11-16"
 tags: [markestream, learning, code]
@@ -16,7 +16,7 @@ tags: [markestream, learning, code]
 <!-- learning:context {"kind": "project", "project_id": "markestream"} -->
 확인일: 2026-11-16 · 이번 학습의 제품 실행 검증: 미실행
 
-프로젝트: `markestream` · 코드 읽기 확인 · Git HEAD: `29e92c92952efe86ddeea18000245df77535f24a`. 개별 해시는 커밋되지 않은 파일 내용도 포함한다.
+프로젝트: `markestream` · 코드 읽기 확인 · Git HEAD: `b1906351bde6484a6e3b1f1ee20cdb27622a0913`. 개별 해시는 커밋되지 않은 파일 내용도 포함한다.
 
 ## 한 문장으로
 
@@ -46,6 +46,14 @@ flowchart TD
 ```
 
 Controller가 인증 주체와 입력을 전달하고, Service의 @Transactional 메서드가 권한 확인·생성·저장·담당 배정을 조율한다. saveAndFlush 호출은 그 자체로 전체 트랜잭션 커밋이 끝났다는 뜻이 아니다. 여기서는 코드와 선언을 읽었으며 실제 오류·롤백 실험은 수행하지 않았다.
+
+## 연결된 개념과 학습
+
+- [계층별 책임과 요청 흐름](../../concepts/layered-request-flow.md): Controller에서 Service·권한·저장·응답으로 이어지는 역할을 추적한다.
+- [트랜잭션 경계](../../concepts/transaction-boundaries.md): 회사 저장과 담당 배정을 어느 메서드가 함께 조율하는지 확인한다.
+- [인증과 인가](../../concepts/authentication-and-authorization.md): 로그인 주체와 대행사 범위·client.create 작업 권한을 구분한다.
+- [첫 진단 세션](../../sessions/markestream/client-company-creation.md): 위 개념을 실제 사용자 답변과 연결해 확인한다. 현재 미응답이다.
+- [전체 학습 지도](../../maps/learning-map.md): 공통 개념·적용 사례·학습 순서를 함께 본다.
 
 ## 설계 근거와 해석
 

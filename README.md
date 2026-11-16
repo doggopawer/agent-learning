@@ -56,6 +56,8 @@ $learning-mentor 광고주 회사 생성 흐름을 공부하고 싶어.
 
 Obsidian에서 **`agent-learning/notes`**를 보관함으로 열고 `index.md`부터 읽는다.
 
+[학습 연결 지도](notes/maps/learning-map.md)에 개념·프로젝트 적용·학습 세션을 Mermaid 마인드맵과 본문 링크로 연결한다. 학습 기록을 남길 때 멘토가 지도도 함께 갱신한다. Obsidian의 전체 그래프나 로컬 그래프에서는 실제 노트 링크를 따라 탐색할 수 있다. 현재 연결한 첫 사례와 개념들은 아직 사용자 답변이 없는 준비 자료다.
+
 | 위치 | 역할 |
 | --- | --- |
 | `AGENTS.md` | 선택한 원본 읽기 전용, 질문·교육·평가 규칙 |
@@ -63,6 +65,7 @@ Obsidian에서 **`agent-learning/notes`**를 보관함으로 열고 `index.md`�
 | `learn` | 현재 프로젝트로 수동 학습 세션 시작 |
 | `scripts/install_skills.py` | 모든 로컬 프로젝트에서 직접 호출할 수 있도록 전역 연결 |
 | `notes/concepts/` | 여러 프로젝트에서 공유하는 개념 |
+| `notes/maps/learning-map.md` | 개념·적용·세션의 마인드맵, 연결 이유와 학습 상태 |
 | `notes/projects/<project-id>/` | 실제 코드·업무 규칙·설계 근거 |
 | `notes/sessions/<project-id>/` | 실제 질문·답변·평가 (`concepts/`는 공통 학습) |
 | `records/notes/<project-id>/` | 재생성 가능한 노트 입력 (`concepts/`는 공통 학습) |
