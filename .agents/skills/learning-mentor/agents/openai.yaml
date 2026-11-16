@@ -1,6 +1,6 @@
 interface:
   display_name: "프로젝트 학습 멘토"
   short_description: "실제 코드와 비즈니스 질문으로 이해도를 확인하는 학습 멘토"
-  default_prompt: "$learning-mentor로 내가 선택한 프로젝트나 개념의 이해도부터 질문해 줘."
+  default_prompt: "$learning-mentor 현재 프로젝트에서 학습을 시작해 줘. 필요한 질문부터 해 줘."
 policy:
   allow_implicit_invocation: false

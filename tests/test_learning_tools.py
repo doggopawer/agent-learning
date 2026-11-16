@@ -24,6 +24,8 @@ def module(name, relative):
 
 notes = module("learning_notes", ".agents/skills/obsidian-notes/scripts/notes.py")
 gate = module("learning_gate", ".agents/skills/learning-mentor/scripts/check_handoff.py")
+session = module("learning_session", ".agents/skills/learning-mentor/scripts/session_context.py")
+installer = module("learning_installer", "scripts/install_skills.py")
 
 
 class LearningToolsTest(unittest.TestCase):
@@ -231,6 +233,63 @@ class LearningToolsTest(unittest.TestCase):
         result = subprocess.run(launch + ["--concept", "트랜잭션"], cwd=self.workspace, env=env, capture_output=True, text=True, check=True)
         self.assertEqual("concept", json.loads(result.stdout)["context"]["mode"])
         self.assertNotIn("project_id", json.loads(result.stdout)["context"])
+
+    def test_global_session_uses_current_git_root_and_shared_vault(self):
+        other = self.workspace.parent / "new-project"
+        nested = other / "src/features"
+        nested.mkdir(parents=True)
+        (other / "README.md").write_text("Source stays read-only\n")
+        subprocess.run(["git", "init", "-q", str(other)], check=True)
+        before = (other / "README.md").read_bytes()
+        result = session.select(self.workspace, nested)
+        self.assertEqual(str(other), result["source_root"])
+        self.assertEqual(str(self.workspace / "notes"), result["vault"])
+        self.assertNotEqual("source", result["project_id"])
+        self.assertEqual(before, (other / "README.md").read_bytes())
+        self.assertFalse((other / "notes").exists())
+        self.assertEqual(other, notes.projects.resolve(self.workspace, result["project_id"]))
+
+    def test_global_session_needs_selection_in_learning_workspace(self):
+        before = (self.workspace / "projects.json").read_bytes()
+        self.assertEqual("needs-project", session.select(self.workspace, self.workspace)["mode"])
+        self.assertEqual("needs-project", session.select(self.workspace, self.workspace.parent)["mode"])
+        self.assertEqual("concept", session.select(self.workspace, self.workspace, concept=True)["mode"])
+        self.assertEqual(before, (self.workspace / "projects.json").read_bytes())
+
+    def test_installed_skill_resolves_real_workspace_from_any_project(self):
+        shutil.copytree(ROOT / "scripts", self.workspace / "scripts")
+        for name in installer.NAMES:
+            destination = self.workspace / ".agents/skills" / name
+            destination.mkdir(parents=True)
+            (destination / "SKILL.md").write_text("Synthetic skill fixture\n")
+        script = self.workspace / ".agents/skills/learning-mentor/scripts/session_context.py"
+        script.parent.mkdir()
+        shutil.copy(ROOT / ".agents/skills/learning-mentor/scripts/session_context.py", script)
+        global_dir = self.workspace.parent / "user-skills"
+        installer.install(self.workspace, global_dir)
+        installer.install(self.workspace, global_dir)
+        for name in installer.NAMES:
+            self.assertTrue((global_dir / name).is_symlink())
+            self.assertEqual(self.workspace / ".agents/skills" / name, (global_dir / name).resolve())
+        command = [sys.executable, str(global_dir / "learning-mentor/scripts/session_context.py"), "--preview"]
+        result = subprocess.run(command, cwd=self.project, text=True, capture_output=True, check=True)
+        data = json.loads(result.stdout)
+        self.assertEqual(str(self.workspace), data["workspace"])
+        self.assertEqual(str(self.project), data["source_root"])
+
+    def test_installer_preserves_existing_skill_and_avoids_partial_install(self):
+        for name in installer.NAMES:
+            destination = self.workspace / ".agents/skills" / name
+            destination.mkdir(parents=True)
+            (destination / "SKILL.md").write_text("Synthetic skill fixture\n")
+        global_dir = self.workspace.parent / "user-skills"
+        existing = global_dir / "obsidian-notes"
+        existing.mkdir(parents=True)
+        (existing / "SKILL.md").write_text("User's existing skill\n")
+        with self.assertRaises(ValueError):
+            installer.install(self.workspace, global_dir)
+        self.assertEqual("User's existing skill\n", (existing / "SKILL.md").read_text())
+        self.assertFalse((global_dir / "learning-mentor").exists())
 
 
 if __name__ == "__main__":

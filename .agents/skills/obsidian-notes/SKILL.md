@@ -5,13 +5,13 @@ description: "명시적으로 요청한 학습 세션에서 공통 개념과 프
 
 # Obsidian Notes
 
-작업공간 `AGENTS.md`, `projects.json`, `notes/index.md`를 읽고 이번 호출의 프로젝트 ID·경로 또는 공통 개념 모드를 확인한다. 다른 프로젝트에서 자동 실행하지 않는다. 출력은 이 작업공간의 `notes`와 `records`에만 둔다. 원본 프로젝트의 `docs`는 참고 자료다.
+이 `SKILL.md`의 심볼릭 링크를 해석한 실제 디렉터리를 `S`, `S/../../..`의 실제 경로를 공통 학습 작업공간 `W`로 정한다. 현재 프로젝트가 아니라 `W/AGENTS.md`, `W/projects.json`, `W/notes/index.md`를 읽는다. 이번 호출의 프로젝트 ID·경로 또는 공통 개념 모드를 확인하며 직접 호출만 있고 대상이 없으면 현재 프로젝트를 선택한다. 필요하면 형제 스킬의 `W/.agents/skills/learning-mentor/scripts/session_context.py`로 현재 프로젝트를 확인·등록한다. 출력은 항상 `W/notes`와 `W/records`에만 둔다. 원본 프로젝트의 `docs`는 참고 자료다. 이 스킬은 직접 호출하거나 명시적으로 시작한 멘토 학습 세션에서 사용한다.
 
 ## 생성·갱신
 
 1. 공통 개념은 `notes/concepts/`, 실제 적용은 `notes/projects/<project-id>/`에서 기존 노트를 찾는다. 같은 이름의 주제라도 다른 프로젝트 파일을 덮어쓰지 않는다. 공통 개념과 프로젝트 사례를 상대 링크로 연결한다. 코드 경로·심볼과 관련 PRD·ADR을 직접 읽고, 현재 사실·설계 근거·멘토의 해석을 나눈다. 이전 대화 내용을 추측하지 않는다.
 2. [입력 형식](references/note-format.md)에 따라 `records/notes/<project-id>/<slug>.json` (공통 개념은 `records/notes/concepts/<slug>.json`)을 작성하거나 갱신한다. 사용자 필기와 답변은 별도 세션에 그대로 보존한다.
-3. `python3 .agents/skills/obsidian-notes/scripts/notes.py upsert --input records/notes/<project-id>/<slug>.json`을 실행한다. 주제 노트의 생성 영역만 갱신한다. 생성 영역이 없거나 손상된 기존 문서는 덮어쓰지 말고 병합 위치를 검토한다.
+3. `python3 "S/scripts/notes.py" upsert --input "W/records/notes/<project-id>/<slug>.json"`을 실행한다. `S`, `W`는 확인한 절대 경로로 바꾸며 공통 개념 입력은 `concepts/`를 사용한다. 주제 노트의 생성 영역만 갱신한다. 생성 영역이 없거나 손상된 기존 문서는 덮어쓰지 말고 병합 위치를 검토한다.
 4. `notes/sessions/<project-id>/` (공통 개념은 `notes/sessions/concepts/`)에 실제 질문·답변·보충 설명·남은 질문을 기록하고 주제 노트로 연결한다. `notes/index.md`에 새 노트를 연결한다. 기존 기록을 반복 복사하지 않는다.
 5. `notes.py check`로 경로·심볼·소스 지문을 확인한다. 원본 변경을 발견하면 노트 내용과 평가 영향을 검토한 뒤 갱신한다. 파일이 같다는 이유로 내용의 정확성까지 보장됐다고 표현하지 않는다.
 

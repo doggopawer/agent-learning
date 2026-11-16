@@ -10,6 +10,8 @@ tags: [learning]
 
 [학습 진행 방법과 실행 명령](learning-workflow.md)
 
+어느 프로젝트의 Codex 채팅에서든 **`$learning-mentor`** 한 줄로 시작한다. 멘토가 현재 프로젝트를 확인하고 필요한 질문을 먼저 한다.
+
 ## 공통 개념
 
 `concepts/`에 주제별 원리·적용 조건·복습 질문을 쌓는다. 프로젝트별 사례를 연결하되 프로젝트 이해도 평가나 승인을 공유하지 않는다. [개념 양식](templates/concept.md)을 참고한다.
@@ -28,5 +30,6 @@ MarkeStream의 기존 진단은 **미응답·미평가·미승인** 상태로 �
 - [개발 전달서 양식](templates/handoff.md)
 - [최초 설치 검증](sessions/2026-11-16-system-setup.md)
 - [공통 학습 전환과 수동 명령 검증](sessions/2026-11-16-manual-launch.md)
+- [모든 프로젝트에서 한 줄 호출 검증](sessions/2026-11-16-global-invocation.md)
 
 원본 코드는 보관함 밖의 파일 링크와 저장소 기준 경로·심볼·해시로 연결한다. Obsidian 그래프에는 보관함 내부 노트 관계가 표시된다.
